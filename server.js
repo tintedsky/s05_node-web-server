@@ -1,22 +1,24 @@
 const express = require('express');
+const hbs = require('hbs');
 
 var app = express();
 
+app.set('view engine', 'hbs');
 //express.static() take absolute path to the folder you want to server up.
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', (req, res) => {
-  res.send({
-    name: 'Moose',
-    likes: [
-      'Biking',
-      'Cities'
-    ]
-  });
+  res.render('home.hbs', {
+    pageTitle: 'Home Page',
+    pageBody: 'Hello World!'
+  })
 });
 
 app.get('/about', (req, res) => {
-    res.send('About Page');
+    res.render('about.hbs',{
+      pageTitle: 'About Page',
+      currentYear: new Date().getFullYear()
+    })
 });
 
 app.get('/bad', (req, res) => {
