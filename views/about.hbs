@@ -1,15 +1,10 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Help Page</title>
-  </head>
+  {{> header}}
   <body>
-    <h1>{{pageTitle}}</h1>
+    <h1>{{pageBody}}</h1>
     <p>Some text here.</p>
 
-    <footer>
-      <p>Copyright {{currentYear}}</p>
-    </footer>
+    {{> footer}}
   </body>
 </html>

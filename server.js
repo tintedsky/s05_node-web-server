@@ -3,21 +3,29 @@ const hbs = require('hbs');
 
 var app = express();
 
+hbs.registerPartials(__dirname + '/views/partials');
+hbs.registerHelper('getCurrentYear', ()=>{
+  return new Date().getFullYear();
+});
+hbs.registerHelper('screamIt', (text) =>{
+  return text.toUpperCase();
+});
+
+
 app.set('view engine', 'hbs');
-//express.static() take absolute path to the folder you want to server up.
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', (req, res) => {
   res.render('home.hbs', {
     pageTitle: 'Home Page',
-    pageBody: 'Hello World!'
+    pageBody: 'Hello World!',
   })
 });
 
 app.get('/about', (req, res) => {
     res.render('about.hbs',{
       pageTitle: 'About Page',
-      currentYear: new Date().getFullYear()
+      pageBody: 'About pageBody',
     })
 });
 
