@@ -13,6 +13,9 @@ hbs.registerHelper('getCurrentYear', ()=>{
 hbs.registerHelper('screamIt', (text)=>{
   return text.toUpperCase();
 });
+hbs.registerHelper('lowerIt', (text)=>{
+  return text.toLowerCase();
+});
 
 
 app.set('view engine', 'hbs');
@@ -50,6 +53,13 @@ app.get('/about', (req, res) => {
       pageTitle: 'About Page',
       pageBody: 'About pageBody',
     })
+});
+
+app.get('/project', (req, res) => {
+  res.render('project.hbs', {
+    pageTitle: 'Project Page',
+    pageBody: 'TEST LOWER CASE.'
+  });
 });
 
 app.get('/bad', (req, res) => {
