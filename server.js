@@ -41,7 +41,7 @@ app.use(express.static(__dirname + '/public'));
 app.get('/', (req, res) => {
   res.render('home.hbs', {
     pageTitle: 'Home Page',
-    pageBody: 'Hello World!',
+    pageBody: 'Hello Xiaowei!',
   })
 });
 
